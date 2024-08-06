@@ -2,7 +2,6 @@
 
 import bcryptjs from 'bcryptjs';
 import mongoose from 'mongoose'
-import { passwordValidation, emailValidation } from '../utils/validations.js';
 
 const UserSchema = new mongoose.Schema({
     name: { type: String, require: true },
@@ -45,9 +44,9 @@ class UserAccountModel {
     async userValidation(login = true) {
         this.cleanUp();
         await this.userConsult();
-        if (emailValidation(this.body.email)) this.errors.push('E-mail inválido!');
+        // if (emailValidation(this.body.email)) this.errors.push('E-mail inválido!');
 
-        if (passwordValidation(this.body.password)) this.errors.push('Senha inválida!');
+        // if (passwordValidation(this.body.password)) this.errors.push('Senha inválida!');
 
         if ((!login) && this.data) this.errors.push(`Usuário (${this.body.email}) já é cadastrado!`)
 
