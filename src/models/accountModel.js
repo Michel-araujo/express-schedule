@@ -1,7 +1,8 @@
 "use strict";
 
 import bcryptjs from 'bcryptjs';
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import { emailValidation, passwordValidation } from '../utils/DataValidations.js';
 
 const UserSchema = new mongoose.Schema({
     name: { type: String, require: true },
@@ -44,16 +45,19 @@ class UserAccountModel {
     async userValidation(login = true) {
         this.cleanUp();
         await this.userConsult();
-        // if (emailValidation(this.body.email)) this.errors.push('E-mail inválido!');
+        if (passwordValidation(this.body.password)) this.errors.push('Senha inválida!');
 
-        // if (passwordValidation(this.body.password)) this.errors.push('Senha inválida!');
+        if (emailValidation(this.body.email)) {
+            this.errors.push('E-mail inválido!')
+        } else {
+            if ((!login) && this.data) this.errors.push(`Usuário (${this.body.email}) já é cadastrado!`)
+            if ((login) && !this.data) {
+                this.errors.push(`Usuário não encontrado!`)
+                this.data = null
+            }
+        };
 
-        if ((!login) && this.data) this.errors.push(`Usuário (${this.body.email}) já é cadastrado!`)
 
-        if ((login) && !this.data) {
-            this.errors.push(`Usuário não encontrado!`)
-            this.data = null
-        }
     }
     async userLogin() {
         await this.userValidation();

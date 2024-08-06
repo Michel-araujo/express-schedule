@@ -10,6 +10,7 @@ import {
     registerController,
     accountCreateController
 } from './src/controlles/registerController.js';
+import { loggedOutArea, loggedArea } from './src/middlewares/loginRequired.js';
 
 const routes = express.Router();
 
@@ -19,10 +20,10 @@ routes.post('/login/register', accountCreateController)
 routes.get('/logout', logoutController)
 
 // ROUTES LOGGED OUT
-routes.get('/', loginController)
-routes.get('/register', registerController)
+routes.get('/', loggedOutArea, loginController)
+routes.get('/register', loggedOutArea, registerController)
 
 // ROUTES LOGGED IN
-routes.get('/home', homeController)
+routes.get('/home', loggedArea, homeController)
 
 export default routes
