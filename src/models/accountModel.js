@@ -19,33 +19,6 @@ class UsersModel {
         this.data = null;
         this.errors = []
     }
-    async userLogin() {
-        await this.userValidarion();
-        if (this.errors.length !== 0) return
-        if (!bcryptjs.compareSync(this.body.password, this.data.password)) {
-            this.errors.push('Usuário ou senha inválido!');
-            this.data = null;
-        }
-    }
-    async userValidarion(login = true) {
-        const emailFormat = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
-        this.cleanUp();
-        await this.userConsult();
-
-        if (!emailFormat.test(this.body.email)) {
-            this.errors.push('E-mail inválido!');
-        }
-        if (this.body.password.length < 8) {
-            this.errors.push('Senha inválida!');
-        }
-        if ((!login) && this.data) {
-            this.errors.push(`Usuário (${this.body.email}) já é cadastrado!`)
-        }
-        if ((login) && !this.data) {
-            this.errors.push(`Usuário não encontrado!`)
-            this.data = null
-        }
-    }
     fromTo() {
         this.body = {
             email: this.body.email,
@@ -68,6 +41,35 @@ class UsersModel {
     }
     async userConsult() {
         this.data = await AccountModel.findOne({ email: this.body.email });
+    }
+    async userValidarion(login = true) {
+        const emailFormat = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
+        this.cleanUp();
+        await this.userConsult();
+
+        if (!emailFormat.test(this.body.email)) {
+            this.errors.push('E-mail inválido!'); 
+            return
+        }
+        if (this.body.password.length < 8) {
+            this.errors.push('Senha inválida!'); 
+            return
+        }
+        if ((!login) && this.data) {
+            this.errors.push(`Usuário (${this.body.email}) já é cadastrado!`)
+        }
+        if ((login) && !this.data) {
+            this.errors.push(`Usuário não encontrado!`)
+            this.data = null
+        }
+    }
+    async userLogin() {
+        await this.userValidarion();
+        if (this.errors.length !== 0) return
+        if (!bcryptjs.compareSync(this.body.password, this.data.password)) {
+            this.errors.push('Usuário ou senha inválido!');
+            this.data = null;
+        }
     }
     async userCreate() {
         const login = false

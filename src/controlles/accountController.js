@@ -1,8 +1,16 @@
 import UsersModel from "../models/accountModel.js";
 
 export const loginController = (req, res) => {
+    if(req.session.user) return res.redirect('/home')
     res.render('login')
 }
+export const logoutController = (req, res) => {
+    req.flash('success', 'Deslogado!')
+    req.session.destroy();
+    res.redirect('/')
+
+}
+
 export const authController = async (req, res) => {
     const user = new UsersModel(req.body)
     try {
