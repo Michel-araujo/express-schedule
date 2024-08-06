@@ -21,62 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
-
-body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
-  position: relative; }
-
-h1 {
-  font-size: 14px; }
-
-h2 {
-  font-size: 18px; }
-
-.content-password {
-  width: calc(100% - (20 * 2));
-  margin: 20px;
-  padding: 20px;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  border: 1px #ccc solid;
-  border-radius: 20px; }
-  .content-password h2 {
-    color: cadetblue; }
-  .content-password * {
-    padding: 5px; }
-  .content-password #Passwoard-strength {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    position: relative; }
-  .content-password .strength {
-    width: 0;
-    height: 20px;
-    background: green;
-    position: relative;
-    border: 1px solid green;
-    border-radius: 5px; }
-  .content-password .Passwoard-length {
-    font-size: 11px;
-    display: block;
-    position: absolute;
-    color: #fff;
-    right: 0;
-    top: -3px; }
-`, "",{"version":3,"sources":["webpack://./frontend/assets/css/style.scss"],"names":[],"mappings":"AAAA;EACI,UAAU;EACV,SAAS;EACT,sBAAsB;EACtB,sHACJ,EAAA;;AAEA;EACI,YAAY;EACZ,WAAW;EACX,gBAAgB;EAChB,gBAAgB;EAChB,kBAAkB,EAAA;;AAGtB;EACI,eAAe,EAAA;;AAGnB;EACI,eAAe,EAAA;;AAGnB;EACI,4BAA4B;EAC5B,YAAY;EACZ,aAAa;EACb,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,sBAAsB;EACtB,mBAAmB,EAAA;EARvB;IAWQ,gBAAgB,EAAA;EAXxB;IAeQ,YAAY,EAAA;EAfpB;IAmBQ,WAAW;IACX,sBAAsB;IACtB,kBAAkB;IAClB,gBAAgB;IAChB,UAAU;IACV,aAAa;IACb,mBAAmB;IACnB,kBAAkB,EAAA;EA1B1B;IA8BQ,QAAQ;IACR,YAAY;IACZ,iBAAiB;IACjB,kBAAkB;IAClB,uBAAuB;IACvB,kBAAkB,EAAA;EAnC1B;IAuCQ,eAAe;IACf,cAAc;IACd,kBAAkB;IAClB,WAAW;IACX,QAAQ;IACR,SAAS,EAAA","sourcesContent":["* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif\n}\n\nbody {\n    height: 100%;\n    width: 100%;\n    overflow: hidden;\n    background: #fff;\n    position: relative;\n}\n\nh1 {\n    font-size: 14px;\n}\n\nh2 {\n    font-size: 18px;\n}\n\n.content-password {\n    width: calc(100% - (20 * 2));\n    margin: 20px;\n    padding: 20px;\n    font-size: 16px;\n    display: flex;\n    flex-direction: column;\n    border: 1px #ccc solid;\n    border-radius: 20px;\n\n    h2 {\n        color: cadetblue;\n    }\n\n    * {\n        padding: 5px;\n    }\n\n    #Passwoard-strength {\n        width: 100%;\n        border: 1px solid #ccc;\n        border-radius: 5px;\n        overflow: hidden;\n        padding: 0;\n        display: flex;\n        flex-direction: row;\n        position: relative;\n    }\n\n    .strength {\n        width: 0;\n        height: 20px;\n        background: green;\n        position: relative;\n        border: 1px solid green;\n        border-radius: 5px;\n    }\n\n    .Passwoard-length {\n        font-size: 11px;\n        display: block;\n        position: absolute;\n        color: #fff;\n        right: 0;\n        top: -3px;\n    }\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

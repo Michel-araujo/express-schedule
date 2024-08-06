@@ -1,14 +1,21 @@
 
 import express from 'express'
-import { autentication, homeController, loginController, showcaseController, showMsgController } from './src/controlles/homeController.js'
+import { homeController } from './src/controlles/homeController.js'
+import {
+    authController,
+    loginController,
+    registerController,
+    registrationController
+} from './src/controlles/accountController.js';
 
 const routes = express.Router();
 
 // ROUTES
-routes.post('/', autentication)
 routes.get('/', loginController)
+routes.post('/login/authentication', authController)
+
 routes.get('/home', homeController)
-routes.get('/showcase', showcaseController)
-routes.get('/show-message', showMsgController)
+routes.get('/register', registerController)
+routes.post('/login/register', registrationController)
 
 export default routes

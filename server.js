@@ -5,7 +5,7 @@ import routes from './routes.js';
 // Sessao do usuario
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
-import flash from 'connect-flash/lib/flash.js';
+import flash from 'connect-flash'
 
 // Configura o process do arquivo env
 import dotenv from 'dotenv';
@@ -23,6 +23,7 @@ import csurf from 'csurf';
 // Componentes
 import { accessLogs } from './src/middlewares/accessLogs.js';
 import { csrfValidation, tokenValidation } from './src/middlewares/csrfToken.js';
+import { alerts } from './src/middlewares/alerts.js';
 
 dotenv.config();
 const app = express();
@@ -71,6 +72,7 @@ app.use(csurf())
 app.use(accessLogs)
 app.use(csrfValidation)
 app.use(tokenValidation)
+app.use(alerts)
 
 // Configura o uso das rotas definidas no módulo 'routes'
 app.use(routes);
